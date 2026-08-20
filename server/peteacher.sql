@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS schedules (
   start_time TIME     NOT NULL,                           -- 开始时间，如 '14:00:00'
   end_time   TIME     NOT NULL,                           -- 结束时间，如 '15:00:00'
   capacity   INT      NOT NULL DEFAULT 1,                 -- 名额（同时能约几个人）
+  price      NUMERIC(10,2) NOT NULL DEFAULT 0,            -- 价格（元），0 表示免费时段
   status     VARCHAR(20) NOT NULL DEFAULT 'open'
              CHECK (status IN ('open','closed')),         -- 时段状态
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
